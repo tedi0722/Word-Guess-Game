@@ -8,7 +8,7 @@ var restartBtn = document.getElementById("restart");
 var wins = 0;
 var loses = 0;
 var guessesLeft = 10;
-var wordBank = ['erictseng'];
+var wordBank = ['awkward', 'croquet', 'crypt', 'dwarves', 'gypsy', 'haiku', 'haphazard', 'hyphen', 'ivory', 'jinx', 'jukebox', 'kayak', 'kiosk', 'klutz', 'memento', 'mystify', 'ostracize', 'oxygen', 'pajama', 'phlegm', 'pixel', 'polka', 'rhythmic', 'rogue', 'sphinx', 'swivel', 'yacht', 'zealous', 'zigzag', 'zombie'];
 var correctLetters = [];
 var incorrectLetters = [];
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
@@ -20,6 +20,7 @@ function startGame() {
     guessesLeft = 10;
     correctLetters = [];
     incorrectLetters = [];
+    console.log(word);
 
     for (i=0; i < word.length; i++) {
         correctLetters.push(" _ ");
@@ -33,21 +34,27 @@ function startGame() {
 }
 // update wins, loses, guesses left numbers
 function winlose() {
-        if (guessesLeft === 0) {
-            loses++;
-            holders.textContent = word;
-            losesCount.innerHTML = "<p>" + "Loses: " + "</p>" + "<p>" + loses + "</p>";
-            instructions.innerHTML = "<h2>" + "You've lost!" + "</h2>"; 
+    if (guessesLeft === 0) {
+        loses++;
+        holders.textContent = word;
+        losesCount.innerHTML = "<p>" + "Loses: " + "</p>" + "<p>" + loses + "</p>";
+        instructions.innerHTML = "<h2>" + "You've lost!" + "</h2>"; 
         }
-        else if (correctLetters.indexOf(" _ ") === -1) {
-            wins++;
-            winsCount.innerHTML = "<p>" + "Wins: " + "</p>" + "<p>" + wins + "</p>";
-            instructions.innerHTML = "<h2>" + "You've won!" + "</h2>"; 
+    else if (correctLetters.indexOf(" _ ") === -1) {
+        wins++;
+        winsCount.innerHTML = "<p>" + "Wins: " + "</p>" + "<p>" + wins + "</p>";
+        instructions.innerHTML = "<h2>" + "You've won!" + "</h2>"; 
         }
     }
+
 // keypress function
 document.onkeypress = function(event) {
     var userGuess = event.key;
+
+    if (guessesLeft === 0 || correctLetters.indexOf(" _ ") === -1) {
+        e.preventDefault();
+        }
+    
 // replace underscores with the correct letter
     for (i=0; i < wordArr.length; i++) {
         if (userGuess === wordArr[i]) {
