@@ -1,0 +1,61 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HANGMAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+</head>
+<body>
+    <div class="container text-center text-light">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-0 display-1">HANGMAN</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center text-light">
+        <div class="row">
+            <div class="col-md-12">
+                <h6>without the man...</h6>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center text-light mb-3">
+        <div class="row">
+            <div id="instructions" class="col-md-12"></div>
+        </div>
+    </div>
+    <div class="container border border-light rounded text-center text-light p-2 display-4 mb-4 text-uppercase">
+        <div class="row">
+            <div id="letterholder" class="col-md-12 letterholder p-3"></div>
+        </div>
+    </div>
+    <div class="container border border-light rounded text-center p-4 mb-4">
+        <div class="row">
+            <div id="guessedletters" class="col-md-12"></div>
+        </div>
+    </div>
+    <div class="container border border-light rounded text-center p-4 mb-4">
+        <div class="row">
+            <div id="loses" class="col-md-4"></div>
+            <div id="guessesleft" class="col-md-4"></div>
+            <div id="wins" class="col-md-4"></div>
+        </div>
+    </div>
+    <div class="container text-light">
+        <div class="row">
+            <div class="col-md-12 mt-4 d-flex justify-content-center">
+                <div>
+                    <img class="restart" id="restart" src="assets/images/button.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="assets/javascript/game.js"></script>
+</body>
+</html>
