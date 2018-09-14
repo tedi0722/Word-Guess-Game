@@ -14,14 +14,16 @@ var incorrectLetters = [];
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
 var wordArr = word.split("");
 
-// start game
-function startGame() {
-// adding underscore as place holders of the word
+function resetGame() {
+    word = wordBank[Math.floor(Math.random() * wordBank.length)];
+    wordArr = word.split("");
     guessesLeft = 10;
     correctLetters = [];
     incorrectLetters = [];
-    console.log(word);
-
+}
+function startGame() {
+// adding underscore as place holders of the word
+    resetGame();
     for (i=0; i < word.length; i++) {
         correctLetters.push(" _ ");
         holders.textContent = correctLetters.join(' ');
@@ -46,15 +48,12 @@ function winlose() {
         instructions.innerHTML = "<h2>" + "You've won!" + "</h2>"; 
         }
     }
-
 // keypress function
 document.onkeypress = function(event) {
     var userGuess = event.key;
-
     if (guessesLeft === 0 || correctLetters.indexOf(" _ ") === -1) {
         e.preventDefault();
         }
-    
 // replace underscores with the correct letter
     for (i=0; i < wordArr.length; i++) {
         if (userGuess === wordArr[i]) {
@@ -66,7 +65,6 @@ document.onkeypress = function(event) {
     if (word.indexOf(userGuess) === -1) {
         if (incorrectLetters.indexOf(userGuess) > -1) {
             instructions.innerHTML = "<h2>" + "You've already guessed that letter!" + "</h2>";
-            return false;
         }
 // display guessed incorrect letters & guesses left
         else {
@@ -82,10 +80,5 @@ document.onkeypress = function(event) {
 restartBtn.onclick = function () {
     startGame();
 }
-
 // call function
 startGame();
-
-
-
-
