@@ -1,12 +1,12 @@
 var holders = document.getElementById("letterholder");
 var guessedLetters = document.getElementById("guessedletters");
-var losesCount = document.getElementById("loses");
+var losesCount = document.getElementById("losses");
 var guessesLeftCount = document.getElementById("guessesleft");
 var winsCount = document.getElementById("wins");
 var instructions = document.getElementById("instructions");
 var restartBtn = document.getElementById("restart");
 var wins = 0;
-var loses = 0;
+var losses = 0;
 var guessesLeft = 10;
 var wordBank = ['awkward', 'croquet', 'crypt', 'dwarves', 'gypsy', 'haiku', 'haphazard', 'hyphen', 'ivory', 'jinx', 'jukebox', 'kayak', 'kiosk', 'klutz', 'memento', 'mystify', 'ostracize', 'oxygen', 'pajama', 'phlegm', 'pixel', 'polka', 'rhythmic', 'rogue', 'sphinx', 'swivel', 'yacht', 'zealous', 'zigzag', 'zombie'];
 var correctLetters = [];
@@ -31,15 +31,15 @@ function startGame() {
     instructions.innerHTML = "<h2>" + "Press any key to start!" + "</h2>"; 
     guessedLetters.innerHTML = "<p>" + "Guessed Letters: " + "</p>" + "<p>" + incorrectLetters + "</p>";
     winsCount.innerHTML = "<p>" + "Wins: " + "</p>" + "<p>" + wins + "</p>";
-    losesCount.innerHTML = "<p>" + "Loses: " + "</p>" + "<p>" + loses + "</p>";
+    losesCount.innerHTML = "<p>" + "Loses: " + "</p>" + "<p>" + losses + "</p>";
     guessesLeftCount.innerHTML = "<p>" + "Guesses Left: " + "</p>" + "<p>" + guessesLeft + "</p>";
 }
-// update wins, loses, guesses left numbers
+// update wins, losses, guesses left numbers
 function winlose() {
     if (guessesLeft === 0) {
-        loses++;
+        losses++;
         holders.textContent = word;
-        losesCount.innerHTML = "<p>" + "Loses: " + "</p>" + "<p>" + loses + "</p>";
+        losesCount.innerHTML = "<p>" + "Loses: " + "</p>" + "<p>" + losses + "</p>";
         instructions.innerHTML = "<h2>" + "You've lost!" + "</h2>"; 
         }
     else if (correctLetters.indexOf(" _ ") === -1) {
